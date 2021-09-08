@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+
+<body>
+    <h1>TITLE</h1>
+    <form action="{{url_for('add_entry')}}" method="post">
+        <dl>
+            <dt>CODE:</dt>
+            <dd><input type="text" name="jcode" maxlength="7"></dd>
+            <dt>TEMP:</dt>
+            <dd><input type="number" step="0.1" name="temp" maxlength="4"></dd>
+        </dl>
+        <div>
+            <input type="submit" value="Send">
+        </div>
+    </form>
+    <div>
+        <ul class="">
+            {% for entry in entries %}
+            <li>CODE:{{entry.jcode}}, TEMP:{{entry.temp}}, DATE:{{entry.date}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>
